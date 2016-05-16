@@ -33,7 +33,7 @@ class FluentAuthCode extends AbstractFluentAdapter implements AuthCodeInterface
     public function get($code)
     {
         $result = $this->getConnection()->table('oauth_auth_codes')
-            ->where('oauth_auth_codes.id', $code)
+            ->where('oauth_auth_codes.auth_code', $code)
             ->where('oauth_auth_codes.expire_time', '>=', time())
             ->first();
 
@@ -42,7 +42,7 @@ class FluentAuthCode extends AbstractFluentAdapter implements AuthCodeInterface
         }
 
         return (new AuthCodeEntity($this->getServer()))
-            ->setId($result->id)
+            ->setId($result->auth_code)
             ->setRedirectUri($result->redirect_uri)
             ->setExpireTime((int) $result->expire_time);
     }
@@ -58,8 +58,8 @@ class FluentAuthCode extends AbstractFluentAdapter implements AuthCodeInterface
     {
         $result = $this->getConnection()->table('oauth_auth_code_scopes')
             ->select('oauth_scopes.*')
-            ->join('oauth_scopes', 'oauth_auth_code_scopes.scope_id', '=', 'oauth_scopes.id')
-            ->where('oauth_auth_code_scopes.auth_code_id', $token->getId())
+            ->join('oauth_scopes', 'oauth_auth_code_scopes.scope', '=', 'oauth_scopes.id')
+            ->where('oauth_auth_code_scopes.auth_code', $token->getId())
             ->get();
 
         $scopes = [];
@@ -85,10 +85,8 @@ class FluentAuthCode extends AbstractFluentAdapter implements AuthCodeInterface
     public function associateScope(AuthCodeEntity $token, ScopeEntity $scope)
     {
         $this->getConnection()->table('oauth_auth_code_scopes')->insert([
-            'auth_code_id' => $token->getId(),
-            'scope_id' => $scope->getId(),
-            'created_at' => Carbon::now(),
-            'updated_at' => Carbon::now(),
+            'auth_code' => $token->getId(),
+            'scope' => $scope->getId(),
         ]);
     }
 
@@ -102,7 +100,7 @@ class FluentAuthCode extends AbstractFluentAdapter implements AuthCodeInterface
     public function delete(AuthCodeEntity $token)
     {
         $this->getConnection()->table('oauth_auth_codes')
-        ->where('oauth_auth_codes.id', $token->getId())
+        ->where('oauth_auth_codes.auth_code', $token->getId())
         ->delete();
     }
 
@@ -119,12 +117,10 @@ class FluentAuthCode extends AbstractFluentAdapter implements AuthCodeInterface
     public function create($token, $expireTime, $sessionId, $redirectUri)
     {
         $this->getConnection()->table('oauth_auth_codes')->insert([
-            'id' => $token,
+            'auth_code' => $token,
             'session_id' => $sessionId,
-            'redirect_uri' => $redirectUri,
+            'client_redirect_uri' => $redirectUri,
             'expire_time' => $expireTime,
-            'created_at' => Carbon::now(),
-            'updated_at' => Carbon::now(),
         ]);
     }
 }

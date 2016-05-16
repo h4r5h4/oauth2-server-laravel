@@ -59,7 +59,7 @@ class FluentSession extends AbstractFluentAdapter implements SessionInterface
         $result = $this->getConnection()->table('oauth_sessions')
                 ->select('oauth_sessions.*')
                 ->join('oauth_access_tokens', 'oauth_sessions.id', '=', 'oauth_access_tokens.session_id')
-                ->where('oauth_access_tokens.id', $accessToken->getId())
+                ->where('oauth_access_tokens.access_token', $accessToken->getId())
                 ->first();
 
         if (is_null($result)) {
@@ -83,7 +83,7 @@ class FluentSession extends AbstractFluentAdapter implements SessionInterface
         // TODO: Check this before pushing
         $result = $this->getConnection()->table('oauth_session_scopes')
                   ->select('oauth_scopes.*')
-                  ->join('oauth_scopes', 'oauth_session_scopes.scope_id', '=', 'oauth_scopes.id')
+                  ->join('oauth_scopes', 'oauth_session_scopes.scope', '=', 'oauth_scopes.id')
                   ->where('oauth_session_scopes.session_id', $session->getId())
                   ->get();
 
@@ -133,7 +133,7 @@ class FluentSession extends AbstractFluentAdapter implements SessionInterface
     {
         $this->getConnection()->table('oauth_session_scopes')->insert([
             'session_id' => $session->getId(),
-            'scope_id' => $scope->getId(),
+            'scope' => $scope->getId(),
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now(),
         ]);
@@ -151,7 +151,7 @@ class FluentSession extends AbstractFluentAdapter implements SessionInterface
         $result = $this->getConnection()->table('oauth_sessions')
             ->select('oauth_sessions.*')
             ->join('oauth_auth_codes', 'oauth_sessions.id', '=', 'oauth_auth_codes.session_id')
-            ->where('oauth_auth_codes.id', $authCode->getId())
+            ->where('oauth_auth_codes.auth_code', $authCode->getId())
             ->first();
 
         if (is_null($result)) {

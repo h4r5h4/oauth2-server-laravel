@@ -33,7 +33,7 @@ class FluentAccessToken extends AbstractFluentAdapter implements AccessTokenInte
     public function get($token)
     {
         $result = $this->getConnection()->table('oauth_access_tokens')
-                ->where('oauth_access_tokens.id', $token)
+                ->where('oauth_access_tokens.access_token', $token)
                 ->first();
 
         if (is_null($result)) {
@@ -41,7 +41,7 @@ class FluentAccessToken extends AbstractFluentAdapter implements AccessTokenInte
         }
 
         return (new AccessTokenEntity($this->getServer()))
-               ->setId($result->id)
+               ->setId($result->access_token)
                ->setExpireTime((int) $result->expire_time);
     }
 
@@ -76,7 +76,7 @@ class FluentAccessToken extends AbstractFluentAdapter implements AccessTokenInte
         $result = $this->getConnection()->table('oauth_access_token_scopes')
                 ->select('oauth_scopes.*')
                 ->join('oauth_scopes', 'oauth_access_token_scopes.scope_id', '=', 'oauth_scopes.id')
-                ->where('oauth_access_token_scopes.access_token_id', $token->getId())
+                ->where('oauth_access_token_scopes.access_token', $token->getId())
                 ->get();
 
         $scopes = [];

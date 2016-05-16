@@ -32,7 +32,7 @@ class FluentRefreshToken extends AbstractFluentAdapter implements RefreshTokenIn
     public function get($token)
     {
         $result = $this->getConnection()->table('oauth_refresh_tokens')
-                ->where('oauth_refresh_tokens.id', $token)
+                ->where('oauth_refresh_tokens.refresh_token', $token)
                 ->where('oauth_refresh_tokens.expire_time', '>=', time())
                 ->first();
 
@@ -41,8 +41,8 @@ class FluentRefreshToken extends AbstractFluentAdapter implements RefreshTokenIn
         }
 
         return (new RefreshTokenEntity($this->getServer()))
-               ->setId($result->id)
-               ->setAccessTokenId($result->access_token_id)
+               ->setId($result->refresh_token)
+               ->setAccessTokenId($result->access_token)
                ->setExpireTime((int) $result->expire_time);
     }
 
@@ -58,11 +58,9 @@ class FluentRefreshToken extends AbstractFluentAdapter implements RefreshTokenIn
     public function create($token, $expireTime, $accessToken)
     {
         $this->getConnection()->table('oauth_refresh_tokens')->insert([
-            'id' => $token,
+            'refresh_token' => $token,
             'expire_time' => $expireTime,
-            'access_token_id' => $accessToken,
-            'created_at' => Carbon::now(),
-            'updated_at' => Carbon::now(),
+            'access_token' => $accessToken,
         ]);
 
         return (new RefreshTokenEntity($this->getServer()))
@@ -81,7 +79,7 @@ class FluentRefreshToken extends AbstractFluentAdapter implements RefreshTokenIn
     public function delete(RefreshTokenEntity $token)
     {
         $this->getConnection()->table('oauth_refresh_tokens')
-        ->where('id', $token->getId())
+        ->where('refresh_token', $token->getId())
         ->delete();
     }
 }
