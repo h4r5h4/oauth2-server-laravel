@@ -9,11 +9,11 @@
  * file that was distributed with this source code.
  */
 
-namespace unit\LucaDegasperi\OAuth2Server\Middleware;
+namespace unit\Harsha\OAuth2Server\Middleware;
 
 use Illuminate\Http\Request;
 use League\OAuth2\Server\Exception\InvalidRequestException;
-use LucaDegasperi\OAuth2Server\Authorizer;
+use Harsha\OAuth2Server\Authorizer;
 use PhpSpec\ObjectBehavior;
 
 class CheckAuthCodeRequestMiddlewareSpec extends ObjectBehavior
@@ -34,7 +34,7 @@ class CheckAuthCodeRequestMiddlewareSpec extends ObjectBehavior
 
     public function it_is_initializable()
     {
-        $this->shouldHaveType('LucaDegasperi\OAuth2Server\Middleware\CheckAuthCodeRequestMiddleware');
+        $this->shouldHaveType('Harsha\OAuth2Server\Middleware\CheckAuthCodeRequestMiddleware');
     }
 
     public function it_calls_the_next_middleware_on_success(Request $request, Authorizer $authorizer)

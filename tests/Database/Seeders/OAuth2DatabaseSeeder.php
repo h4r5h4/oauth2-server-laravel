@@ -9,7 +9,7 @@
  * file that was distributed with this source code.
  */
 
-namespace LucaDegasperi\OAuth2Server\Tests\Database\Seeders;
+namespace Harsha\OAuth2Server\Tests\Database\Seeders;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Seeder;

@@ -9,7 +9,7 @@
  * file that was distributed with this source code.
  */
 
-use LucaDegasperi\OAuth2Server\Storage\FluentRefreshToken;
+use Harsha\OAuth2Server\Storage\FluentRefreshToken;
 use Mockery as m;
 
 class FluentRefreshTokenTest extends AbstractDBTestCase

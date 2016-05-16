@@ -1,3 +1,4 @@
+
 <?php
 
 /*
@@ -10,7 +11,7 @@
  */
 
 use Illuminate\Routing\Controller;
-use LucaDegasperi\OAuth2Server\Authorizer;
+use Harsha\OAuth2Server\Authorizer;
 
 class OAuthController extends Controller
 {

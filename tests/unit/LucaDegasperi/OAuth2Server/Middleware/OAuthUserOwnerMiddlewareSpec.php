@@ -9,11 +9,11 @@
  * file that was distributed with this source code.
  */
 
-namespace unit\LucaDegasperi\OAuth2Server\Middleware;
+namespace unit\Harsha\OAuth2Server\Middleware;
 
 use Illuminate\Http\Request;
 use League\OAuth2\Server\Exception\AccessDeniedException;
-use LucaDegasperi\OAuth2Server\Authorizer;
+use Harsha\OAuth2Server\Authorizer;
 use PhpSpec\ObjectBehavior;
 
 /**
@@ -39,7 +39,7 @@ class OAuthUserOwnerMiddlewareSpec extends ObjectBehavior
 
     public function it_is_initializable()
     {
-        $this->shouldHaveType('LucaDegasperi\OAuth2Server\Middleware\OAuthUserOwnerMiddleware');
+        $this->shouldHaveType('Harsha\OAuth2Server\Middleware\OAuthUserOwnerMiddleware');
     }
 
     public function it_passes_if_resource_owners_are_allowed(Request $request, Authorizer $authorizer)

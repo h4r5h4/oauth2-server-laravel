@@ -9,10 +9,10 @@
  * file that was distributed with this source code.
  */
 
-namespace LucaDegasperi\OAuth2Server\Middleware;
+namespace Harsha\OAuth2Server\Middleware;
 
 use Closure;
-use LucaDegasperi\OAuth2Server\Authorizer;
+use Harsha\OAuth2Server\Authorizer;
 
 /**
  * This is the check auth code request middleware class.
@@ -24,14 +24,14 @@ class CheckAuthCodeRequestMiddleware
     /**
      * The authorizer instance.
      *
-     * @var \LucaDegasperi\OAuth2Server\Authorizer
+     * @var \Harsha\OAuth2Server\Authorizer
      */
     protected $authorizer;
 
     /**
      * Create a new check auth code request middleware instance.
      *
-     * @param \LucaDegasperi\OAuth2Server\Authorizer $authorizer
+     * @param \Harsha\OAuth2Server\Authorizer $authorizer
      */
     public function __construct(Authorizer $authorizer)
     {

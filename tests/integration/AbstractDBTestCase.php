@@ -9,7 +9,7 @@
  * file that was distributed with this source code.
  */
 
-use LucaDegasperi\OAuth2Server\Tests\Database\Seeders\OAuth2DatabaseSeeder;
+use Harsha\OAuth2Server\Tests\Database\Seeders\OAuth2DatabaseSeeder;
 
 abstract class AbstractDBTestCase extends AbstractTestCase
 {

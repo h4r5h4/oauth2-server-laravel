@@ -32,12 +32,12 @@
     },
     "autoload": {
         "psr-4": {
-            "LucaDegasperi\\OAuth2Server\\": "src"
+            "Harsha\\OAuth2Server\\": "src"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "LucaDegasperi\\OAuth2Server\\Tests\\": "tests"
+            "Harsha\\OAuth2Server\\Tests\\": "tests"
         },
         "classmap": [
             "database"

@@ -41,7 +41,7 @@ When using the client_credentials grant type, the access token owner and the cli
 ### Finding access token owner
 
 ```php
-use LucaDegasperi\OAuth2Server\Facades\Authorizer;
+use Harsha\OAuth2Server\Facades\Authorizer;
 
 Authorizer::getResourceOwnerId();
 ```

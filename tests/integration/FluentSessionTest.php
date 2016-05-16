@@ -9,7 +9,7 @@
  * file that was distributed with this source code.
  */
 
-use LucaDegasperi\OAuth2Server\Storage\FluentSession;
+use Harsha\OAuth2Server\Storage\FluentSession;
 use Mockery as m;
 
 class FluentSessionTest extends AbstractDBTestCase

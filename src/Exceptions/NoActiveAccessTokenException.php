@@ -9,7 +9,7 @@
  * file that was distributed with this source code.
  */
 
-namespace LucaDegasperi\OAuth2Server\Exceptions;
+namespace Harsha\OAuth2Server\Exceptions;
 
 use Exception;
 

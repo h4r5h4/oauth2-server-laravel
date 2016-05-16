@@ -9,7 +9,7 @@
  * file that was distributed with this source code.
  */
 
-namespace LucaDegasperi\OAuth2Server\Facades;
+namespace Harsha\OAuth2Server\Facades;
 
 use Illuminate\Support\Facades\Facade;
 

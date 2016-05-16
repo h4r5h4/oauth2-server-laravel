@@ -9,7 +9,7 @@
  * file that was distributed with this source code.
  */
 
-use LucaDegasperi\OAuth2Server\Storage\FluentScope;
+use Harsha\OAuth2Server\Storage\FluentScope;
 use Mockery as m;
 
 class FluentScopeTest extends AbstractDBTestCase

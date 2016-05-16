@@ -12,13 +12,13 @@ Then run `composer update` to get the package.
 
 Once composer has installed the package add this line of code to the `providers` array located in your `app/config/app.php` file:
 ```php
-'LucaDegasperi\OAuth2Server\Storage\FluentStorageServiceProvider',
-'LucaDegasperi\OAuth2Server\OAuth2ServerServiceProvider',
+'Harsha\OAuth2Server\Storage\FluentStorageServiceProvider',
+'Harsha\OAuth2Server\OAuth2ServerServiceProvider',
 ```
 
 And this lines to the `aliases` array:
 ```php
-'Authorizer' => 'LucaDegasperi\OAuth2Server\Facades\AuthorizerFacade',
+'Authorizer' => 'Harsha\OAuth2Server\Facades\AuthorizerFacade',
 ```
 
 ## Configuration Publishing

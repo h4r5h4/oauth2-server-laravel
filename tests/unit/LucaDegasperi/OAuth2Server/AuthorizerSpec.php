@@ -9,7 +9,7 @@
  * file that was distributed with this source code.
  */
 
-namespace unit\LucaDegasperi\OAuth2Server;
+namespace unit\Harsha\OAuth2Server;
 
 use League\OAuth2\Server\AuthorizationServer;
 use League\OAuth2\Server\Entity\AccessTokenEntity;
@@ -18,7 +18,7 @@ use League\OAuth2\Server\Entity\SessionEntity;
 use League\OAuth2\Server\Grant\AuthCodeGrant;
 use League\OAuth2\Server\ResourceServer;
 use League\OAuth2\Server\Util\RedirectUri;
-use LucaDegasperi\OAuth2Server\Exceptions\NoActiveAccessTokenException;
+use Harsha\OAuth2Server\Exceptions\NoActiveAccessTokenException;
 use PhpSpec\ObjectBehavior;
 use Symfony\Component\HttpFoundation\Request;
 
@@ -31,7 +31,7 @@ class AuthorizerSpec extends ObjectBehavior
 
     public function it_is_initializable()
     {
-        $this->shouldHaveType('LucaDegasperi\OAuth2Server\Authorizer');
+        $this->shouldHaveType('Harsha\OAuth2Server\Authorizer');
     }
 
     public function it_issues_an_access_token(AuthorizationServer $issuer)

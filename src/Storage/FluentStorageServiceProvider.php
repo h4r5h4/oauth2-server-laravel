@@ -9,7 +9,7 @@
  * file that was distributed with this source code.
  */
 
-namespace LucaDegasperi\OAuth2Server\Storage;
+namespace Harsha\OAuth2Server\Storage;
 
 use Illuminate\Contracts\Container\Container as Application;
 use Illuminate\Support\ServiceProvider;

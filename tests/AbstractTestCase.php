@@ -32,15 +32,15 @@ abstract class AbstractTestCase extends OrchestraTestCase
     protected function getPackageProviders($app)
     {
         return [
-            'LucaDegasperi\OAuth2Server\Storage\FluentStorageServiceProvider',
-            'LucaDegasperi\OAuth2Server\OAuth2ServerServiceProvider',
+            'Harsha\OAuth2Server\Storage\FluentStorageServiceProvider',
+            'Harsha\OAuth2Server\OAuth2ServerServiceProvider',
         ];
     }
 
     protected function getPackageAliases($app)
     {
         return [
-            'Authorizer' => 'LucaDegasperi\OAuth2Server\Facades\Authorizer',
+            'Authorizer' => 'Harsha\OAuth2Server\Facades\Authorizer',
         ];
     }
 }

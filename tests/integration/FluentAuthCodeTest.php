@@ -9,7 +9,7 @@
  * file that was distributed with this source code.
  */
 
-use LucaDegasperi\OAuth2Server\Storage\FluentAuthCode;
+use Harsha\OAuth2Server\Storage\FluentAuthCode;
 use Mockery as m;
 
 class FluentAuthCodeTest extends AbstractDBTestCase
