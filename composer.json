@@ -1,5 +1,5 @@
 {
-    "name": "lucadegasperi/oauth2-server-laravel",
+    "name": "h4r5h4/oauth2-server-laravel",
     "description": "An OAuth 2.0 bridge for Laravel and Lumen",
     "keywords": ["oauth2", "oauth", "server", "api", "laravel", "lumen"],
     "license": "MIT",
