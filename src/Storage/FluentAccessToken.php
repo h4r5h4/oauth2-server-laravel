@@ -75,7 +75,7 @@ class FluentAccessToken extends AbstractFluentAdapter implements AccessTokenInte
     {
         $result = $this->getConnection()->table('oauth_access_token_scopes')
                 ->select('oauth_scopes.*')
-                ->join('oauth_scopes', 'oauth_access_token_scopes.scope_id', '=', 'oauth_scopes.id')
+                ->join('oauth_scopes', 'oauth_access_token_scopes.scope', '=', 'oauth_scopes.id')
                 ->where('oauth_access_token_scopes.access_token', $token->getId())
                 ->get();
 
