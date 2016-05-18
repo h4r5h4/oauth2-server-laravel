@@ -103,11 +103,9 @@ class FluentAccessToken extends AbstractFluentAdapter implements AccessTokenInte
     public function create($token, $expireTime, $sessionId)
     {
         $this->getConnection()->table('oauth_access_tokens')->insert([
-            'id' => $token,
+            'access_token' => $token,
             'expire_time' => $expireTime,
             'session_id' => $sessionId,
-            'created_at' => Carbon::now(),
-            'updated_at' => Carbon::now(),
         ]);
 
         return (new AccessTokenEntity($this->getServer()))
@@ -126,10 +124,8 @@ class FluentAccessToken extends AbstractFluentAdapter implements AccessTokenInte
     public function associateScope(AccessTokenEntity $token, ScopeEntity $scope)
     {
         $this->getConnection()->table('oauth_access_token_scopes')->insert([
-            'access_token_id' => $token->getId(),
+            'access_token' => $token->getId(),
             'scope_id' => $scope->getId(),
-            'created_at' => Carbon::now(),
-            'updated_at' => Carbon::now(),
         ]);
     }
 
@@ -143,7 +139,7 @@ class FluentAccessToken extends AbstractFluentAdapter implements AccessTokenInte
     public function delete(AccessTokenEntity $token)
     {
         $this->getConnection()->table('oauth_access_tokens')
-        ->where('oauth_access_tokens.id', $token->getId())
+        ->where('oauth_access_tokens.access_token', $token->getId())
         ->delete();
     }
 }

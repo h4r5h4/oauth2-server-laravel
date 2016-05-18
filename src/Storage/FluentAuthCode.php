@@ -43,7 +43,7 @@ class FluentAuthCode extends AbstractFluentAdapter implements AuthCodeInterface
 
         return (new AuthCodeEntity($this->getServer()))
             ->setId($result->auth_code)
-            ->setRedirectUri($result->redirect_uri)
+            ->setRedirectUri($result->client_redirect_uri)
             ->setExpireTime((int) $result->expire_time);
     }
 

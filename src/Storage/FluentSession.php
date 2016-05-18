@@ -117,7 +117,6 @@ class FluentSession extends AbstractFluentAdapter implements SessionInterface
             'owner_id' => $ownerId,
             'client_redirect_uri' => $clientRedirectUri,
             'created_at' => Carbon::now(),
-            'updated_at' => Carbon::now(),
         ]);
     }
 
@@ -134,8 +133,6 @@ class FluentSession extends AbstractFluentAdapter implements SessionInterface
         $this->getConnection()->table('oauth_session_scopes')->insert([
             'session_id' => $session->getId(),
             'scope' => $scope->getId(),
-            'created_at' => Carbon::now(),
-            'updated_at' => Carbon::now(),
         ]);
     }
 
