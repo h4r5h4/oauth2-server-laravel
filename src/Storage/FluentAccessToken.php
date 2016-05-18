@@ -125,7 +125,7 @@ class FluentAccessToken extends AbstractFluentAdapter implements AccessTokenInte
     {
         $this->getConnection()->table('oauth_access_token_scopes')->insert([
             'access_token' => $token->getId(),
-            'scope_id' => $scope->getId(),
+            'scope' => $scope->getId(),
         ]);
     }
 
