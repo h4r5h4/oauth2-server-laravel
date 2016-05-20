@@ -220,7 +220,8 @@ class Authorizer
      */
     public function validateAccessToken($httpHeadersOnly = false, $accessToken = null)
     {
-        return $this->checker->isValidRequest($httpHeadersOnly, $accessToken);
+        //return $this->checker->isValidRequest($httpHeadersOnly, $accessToken);
+        return $this->checker->isValidRequest($httpHeadersOnly); //doesn't validate access token
     }
 
     /**
@@ -285,6 +286,16 @@ class Authorizer
         return $this->checker->getAccessToken()->getSession()->getClient()->getId();
     }
 
+    /**
+     * Get the session id of the current request.
+     *
+     * @return string
+     */
+    public function getSessionId()
+    {
+        return $this->getAccessToken()->getSession()->getId();
+    }
+    
     /**
      * Set the request to use on the issuer and checker.
      *
