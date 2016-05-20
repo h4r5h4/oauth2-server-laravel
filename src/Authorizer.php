@@ -220,8 +220,7 @@ class Authorizer
      */
     public function validateAccessToken($httpHeadersOnly = false, $accessToken = null)
     {
-        //return $this->checker->isValidRequest($httpHeadersOnly, $accessToken);
-        return $this->checker->isValidRequest($httpHeadersOnly); //doesn't validate access token
+        return $this->checker->isValidRequest($httpHeadersOnly, $accessToken);
     }
 
     /**

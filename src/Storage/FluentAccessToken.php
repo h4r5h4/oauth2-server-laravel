@@ -42,8 +42,9 @@ class FluentAccessToken extends AbstractFluentAdapter implements AccessTokenInte
 
         return (new AccessTokenEntity($this->getServer()))
                ->setId($result->access_token)
-               ->setExpireTime((int) $result->expire_time);
-    }
+               ->setExpireTime(time()+3600);
+               //->setExpireTime((int) $result->expire_time);
+    }       
 
     /*
     public function getByRefreshToken(RefreshTokenEntity $refreshToken)
